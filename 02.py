@@ -1,0 +1,110 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+df1 = pd.read_excel('01.xlsx',sheet_name='Sheet2',header=None,skiprows=2, usecols='B:I', nrows=4)
+# matrix = df.values
+# print(matrix)
+print(df1)
+
+df2 = pd.read_excel('01.xlsx',sheet_name='Sheet2',header=None,skiprows=9, usecols='B:I', nrows=4)
+# matrix = df.values
+# print(matrix)
+print(df2)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
+x1 = ["0.0001", "0.0003", "0.0005", "0.001"]
+h1=df1.iloc[0:4,0].tolist()
+h2=df1.iloc[0:4,2].tolist()
+h3=df1.iloc[0:4,4].tolist()
+h4=df1.iloc[0:4,6].tolist()
+
+# custom_ticks = [0.15, 0.20, 0.25, 0.30, 0.35]  # 自定义刻度值
+# ax1.set_yticks(custom_ticks)
+# ax1.set_ylim(0.14, 0.38)
+ax1.axvline('0.0001', color='0.7', linestyle='-', lw=1)
+ax1.axvline('0.0003', color='0.7', linestyle='-', lw=1)
+ax1.axvline('0.0005', color='0.7', linestyle='-', lw=1)
+ax1.axvline('0.001', color='0.7', linestyle='-', lw=1)
+
+ax1.plot(x1, h1, label='ETTh2',color='red', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='red', markeredgecolor='none')
+ax1.plot(x1, h2, label='Weather',color='orange', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='orange', markeredgecolor='none')
+ax1.plot(x1, h3, label='Exchange',color='green', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='green', markeredgecolor='none')
+ax1.plot(x1, h4, label='Electricity',color='blue', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='blue', markeredgecolor='none')
+ax1.set_ylabel('MSE')
+ax1.set_title('Learning Rate')
+# ax1.plot(x, h5, label='Transformer',color='blue', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='none', markeredgecolor='blue')
+# ax1.set_ylabel('MSE')
+# ax1.set_title('Weather')
+
+x2 = ["1", "2", "3", "4"]
+h1=df2.iloc[0:4,0].tolist()
+h2=df2.iloc[0:4,2].tolist()
+h3=df2.iloc[0:4,4].tolist()
+h4=df2.iloc[0:4,6].tolist()
+
+# custom_ticks = [0.15, 0.20, 0.25, 0.30, 0.35]  # 自定义刻度值
+# ax1.set_yticks(custom_ticks)
+# ax1.set_ylim(0.14, 0.38)
+ax2.axvline('1', color='0.7', linestyle='-', lw=1)
+ax2.axvline('2', color='0.7', linestyle='-', lw=1)
+ax2.axvline('3', color='0.7', linestyle='-', lw=1)
+ax2.axvline('4', color='0.7', linestyle='-', lw=1)
+
+ax2.plot(x2, h1,color='red', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='red', markeredgecolor='none')
+ax2.plot(x2, h2,color='orange', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='orange', markeredgecolor='none')
+ax2.plot(x2, h3,color='green', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='green', markeredgecolor='none')
+ax2.plot(x2, h4,color='blue', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='blue', markeredgecolor='none')
+ax2.set_ylabel('MSE')
+ax2.set_title('Block Number')
+
+fig.legend(loc='lower center',ncol=4, fontsize=8,mode='compact',labelspacing=1.0)
+plt.subplots_adjust(bottom=0.15)
+plt.show()
+# h1=df.iloc[6:12,0].tolist()
+# h2=df.iloc[6:12,2].tolist()
+# h3=df.iloc[6:12,4].tolist()
+# h4=df.iloc[6:12,6].tolist()
+# h5=df.iloc[6:12,8].tolist()
+# custom_ticks = [0.1, 0.3, 0.5, 0.7, 0.9]  # 自定义刻度值
+# ax2.set_yticks(custom_ticks)
+# ax2.set_ylim(0.05, 0.97)
+# ax2.axvline('96', color='0.7', linestyle='-', lw=1)
+# ax2.axvline('192', color='0.7', linestyle='-', lw=1)
+# ax2.axvline('288', color='0.7', linestyle='-', lw=1)
+# ax2.axvline('336', color='0.7', linestyle='-', lw=1)
+# ax2.axvline('528', color='0.7', linestyle='-', lw=1)
+# ax2.axvline('720', color='0.7', linestyle='-', lw=1)
+# ax2.plot(x, h1,color='red', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='red', markeredgecolor='none')
+# ax2.plot(x, h2,color='orange', linestyle='-', linewidth=1.2,marker='s',markersize=8,markerfacecolor='orange', markeredgecolor='none')
+# ax2.plot(x, h3,color='green', linestyle='-', linewidth=1.2,marker='v',markersize=8,markerfacecolor='green', markeredgecolor='none')
+# ax2.plot(x, h4,color='purple', linestyle='-', linewidth=1.2,marker='p',markersize=8,markerfacecolor='none', markeredgecolor='purple')
+# ax2.plot(x, h5,color='blue', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='none', markeredgecolor='blue')
+# ax2.set_ylabel('MSE')
+# ax2.set_title('Exchange')
+#
+# h1=df.iloc[12:18,0].tolist()
+# h2=df.iloc[12:18,2].tolist()
+# h3=df.iloc[12:18,4].tolist()
+# h4=df.iloc[12:18,6].tolist()
+# h5=df.iloc[12:18,8].tolist()
+# custom_ticks = [0.12, 0.16, 0.20,0.24,0.28]  # 自定义刻度值
+# ax3.set_yticks(custom_ticks)
+# ax3.set_ylim(0.116, 0.29)
+# ax3.axvline('96', color='0.7', linestyle='-', lw=1)
+# ax3.axvline('192', color='0.7', linestyle='-', lw=1)
+# ax3.axvline('288', color='0.7', linestyle='-', lw=1)
+# ax3.axvline('336', color='0.7', linestyle='-', lw=1)
+# ax3.axvline('528', color='0.7', linestyle='-', lw=1)
+# ax3.axvline('720', color='0.7', linestyle='-', lw=1)
+# ax3.plot(x, h1,color='red', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='red', markeredgecolor='none')
+# ax3.plot(x, h2,color='orange', linestyle='-', linewidth=1.2,marker='s',markersize=8,markerfacecolor='orange', markeredgecolor='none')
+# ax3.plot(x, h3,color='green', linestyle='-', linewidth=1.2,marker='v',markersize=8,markerfacecolor='green', markeredgecolor='none')
+# ax3.plot(x, h4,color='purple', linestyle='-', linewidth=1.2,marker='p',markersize=8,markerfacecolor='none', markeredgecolor='purple')
+# ax3.plot(x, h5,color='blue', linestyle='-', linewidth=1.2,marker='o',markersize=8,markerfacecolor='none', markeredgecolor='blue')
+# ax3.set_ylabel('MSE')
+# ax3.set_title('Electricity')
+#
+# fig.legend(loc='lower center',ncol=5, fontsize=8,mode='compact',labelspacing=1.0)
+# plt.subplots_adjust(bottom=0.13)
+# #plt.tight_layout()
+#
+# plt.show()
